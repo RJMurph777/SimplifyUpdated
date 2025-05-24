@@ -2,16 +2,16 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000; // Render will override this to its internal port
 
 app.use(cors());
 
-// Default root route to confirm backend is working
+// Root route
 app.get('/', (req, res) => {
   res.send('🎉 Simplify backend is working and deployed!');
 });
 
-// API endpoint for tasks
+// Sample API route
 app.get('/tasks', (req, res) => {
   res.json([
     { title: "Follow up with Walmart buyer", status: "In Progress" },
@@ -20,6 +20,7 @@ app.get('/tasks', (req, res) => {
   ]);
 });
 
+// Start server
 app.listen(PORT, () => {
-  console.log(`✅ Server running at http://localhost:${PORT}`);
+  console.log(`✅ Server running on port ${PORT}`);
 });
