@@ -4,7 +4,10 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-app.use(cors());
+// ✅ Allow CORS from your frontend domain only
+app.use(cors({
+  origin: 'https://simplify-frontend-v1.onrender.com'
+}));
 
 // Health check route
 app.get('/', (req, res) => {
